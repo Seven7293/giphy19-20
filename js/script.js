@@ -2,17 +2,15 @@
 
 console.log('hi');
 
-$('h1').click(function(){
-    $('h1').css('color', 'green');
-    $('h1').text('Ready to Code');
-    $("").click(function() { 
-    fetch("https://api.giphy.com/v1/gifs/search?q=puppy&rating=pg&api_key=rQrXp8Skecms5IYqoh0BS4HeQW9L35LY")
+
+    $("button").click(function() { 
+    fetch("https://api.tvmaze.com/search/shows?q=" + input + "&api_key=dc6zaTOxFJmzC")
       .then(function(response) {
         return response.json();
       })
       .then(function(data) {
-            console.log()
+            $('body').append('<img src=' + data.data[0].images.original.url + '>');
+        console.log(data)
             ;
       })
-});
 });
